@@ -33,11 +33,7 @@
 (defun my/maximize ()
   "Maximize Emacs."
   (interactive)
-  (when (display-graphic-p)
-    (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                           '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-    (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                           '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))))
+  )
 
 ;;;###autoload
 (defun my/shorten-minor-modes (modes)
