@@ -100,6 +100,7 @@
  '(global-control-mode-exceptions
    '(special-mode dired-mode term-mode magit-popup-mode woman-mode customize-mode compilation-mode))
  '(global-git-gutter-mode t)
+ '(global-magit-file-mode nil)
  '(haskell-font-lock-symbols 'unicode)
  '(haskell-mode-hook '(turn-on-haskell-indentation) t)
  '(highlight-symbol-idle-delay 1.0)
@@ -136,6 +137,7 @@
  '(large-file-warning-threshold 100000000)
  '(lua-indent-level 2)
  '(lua-prefix-key "C-z")
+ '(magit-auto-revert-mode t)
  '(magit-auto-revert-mode-lighter "")
  '(magit-completing-read-function 'magit-ido-completing-read)
  '(magit-no-confirm '(stage-all-changes unstage-all-changes))
@@ -144,6 +146,9 @@
  '(magit-set-upstream-on-push t)
  '(magit-stage-all-confirm nil)
  '(magit-unstage-all-confirm nil)
+ '(magit-wip-after-apply-mode nil)
+ '(magit-wip-after-save-mode nil)
+ '(magit-wip-before-change-mode nil)
  '(markdown-asymmetric-header nil)
  '(markdown-command
    "pandoc -s -f markdown_github -c file:///home/mattiasb/.emacs.d/github-pandoc.css")
