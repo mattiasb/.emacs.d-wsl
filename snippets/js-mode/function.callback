@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Callback
+# key: function
+# --
+(function(${1:args}) {
+$0
+}).bind(this)
