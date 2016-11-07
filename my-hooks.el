@@ -358,7 +358,8 @@
 (defun my/git-commit-mode-hook ()
   "My `git-commit' mode hook."
   (my/control-mode-off)
-  (flyspell-mode)
+  ;; TODO: Flyspell not working yet
+  ;; (flyspell-mode)
   (auto-fill-mode)
   (fci-mode 1)
   (setq-local fill-column 72))
@@ -386,7 +387,8 @@
 (defvar markdown-mode-map)
 (defun my/markdown-mode-hook ()
   "My `markdown' mode hook."
-  (flyspell-mode)
+  ;; TODO: Flyspell not working yet
+  ;; (flyspell-mode)
   (setq-local fill-column 80)
   (fci-mode)
   (auto-fill-mode)
@@ -456,7 +458,8 @@
   (flycheck-mode)
   (setq flyspell-prog-text-faces
         '(font-lock-comment-face font-lock-doc-face))
-  (flyspell-prog-mode)
+  ;; TODO: Flyspell not working yet
+  ;; (flyspell-prog-mode)
   (fci-mode)
   (highlight-numbers-mode)
   (emr-initialize)
