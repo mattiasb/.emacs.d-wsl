@@ -37,7 +37,7 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(cd "~")
+(cd "C:/Users/mattias.bengtsson/Documents/")
 ;; Load path
 (defvar load-prefer-newer)
 (setq load-prefer-newer t)
