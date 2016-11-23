@@ -37,6 +37,15 @@
 
 (add-hook 'ag-mode-hook #'my/ag-mode-hook)
 
+
+;; Ahk
+(defun my/ahk-mode-hook ()
+  "My `ahk' mode hook."
+  )
+
+(add-hook 'ahk-mode-hook #'my/prog-mode)
+(add-hook 'ahk-mode-hook #'my/ahk-mode-hook)
+
 ;; Browse Kill Ring
 (defvar browse-kill-ring-mode-map)
 (defun my/browse-kill-ring-mode-hook ()
