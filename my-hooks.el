@@ -59,6 +59,19 @@
 
 (add-hook 'browse-kill-ring-mode-hook #'my/browse-kill-ring-mode-hook)
 
+
+;; Backward Forward
+(defun my/backward-forward-mode-hook ()
+  "My `backward-forward' mode hook."
+  (my/define-keys backward-forward-mode-map
+                  '(( "M-<left>"   . backward-forward-previous-location)
+                    ( "M-<right>"  . backward-forward-next-location)
+                    ( "C-<left>"   . nil)
+                    ( "C-<right>"  . nil))))
+
+(add-hook 'backward-forward-mode-hook #'my/backward-forward-mode-hook)
+
+
 ;; C common
 (defvar c-mode-base-map)
 (defun my/c-mode-common-hook ()
@@ -74,27 +87,13 @@
 (defvar projectile-command-map)
 (defun my/c-mode-hook ()
   "A mode hook for C and C++."
-  (require 'rtags)
-  (require 'company-rtags)
-  (rtags-start-process-unless-running)
-  (setq-local rtags-completions-enabled t)
-  (rtags-enable-standard-keybindings c-mode-base-map)
-  (setq-local company-backends '((company-rtags
-                                  company-keywords
-                                  company-files)))
 
   ;; Work around bug where c-mode-base-map doesn't inherit from
   ;; prog-mode-map
   (my/define-keys c-mode-base-map
-                  '(( "C-<return>" . rtags-find-symbol-at-point)
-                    ( "M-<left>"   . rtags-location-stack-back)
-                    ( "M-<right>"  . rtags-location-stack-forward)
-                    ( "C-z f r"    . rtags-rename-symbol)
-                    ( "."          . my/dot-and-complete)
+                  '(( "."          . my/dot-and-complete)
                     ( ":"          . my/double-colon-and-complete)
-                    ( ">"          . my/arrow-and-complete)))
-  (my/define-keys projectile-command-map
-                  '(( "j"         . rtags-find-symbol))))
+                    ( ">"          . my/arrow-and-complete))))
 
 (add-hook 'c-mode-hook   #'my/c-mode-hook)
 (add-hook 'c++-mode-hook #'my/c-mode-hook)
@@ -341,8 +340,7 @@
 (defun my/tern-mode-hook ()
   "My `tern' mode hook."
   (my/define-keys tern-mode-keymap
-                  '(( "M-<left>"   . tern-pop-find-definition)
-                    ( "C-<return>" . tern-find-definition)
+                  '(( "C-<return>" . tern-find-definition)
                     ( "C-z f r"    . tern-rename-variable))))
 
 (add-hook 'tern-mode-hook #'my/tern-mode-hook)
@@ -457,7 +455,7 @@
 (defvar flyspell-prog-text-faces)
 (defun my/prog-mode ()
   "My `prog-mode' hook."
-
+  (require 'company)
   (setq-local fill-column 80)
   (unless (derived-mode-p 'makefile-mode)
     (setq-local indent-tabs-mode nil))
@@ -472,7 +470,7 @@
   (fci-mode)
   (highlight-numbers-mode)
   (emr-initialize)
-
+  (backward-forward-mode)
   (my/define-keys prog-mode-map
                   '(( "<tab>"       . my/indent-snippet-or-complete)
                     ( "C-z f e"     . iedit-mode)
