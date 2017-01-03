@@ -928,5 +928,11 @@ Optionally only search as deep as DEPTH."
   (require 'realgud)
   (call-interactively my/realgud-debugger))
 
+(defun my/intercalate (sep &rest elems)
+  "Intercalate with SEP the ELEMS."
+  (mapconcat #'identity
+             elems
+             sep))
+
 (provide 'funcs)
 ;;; funcs.el ends here

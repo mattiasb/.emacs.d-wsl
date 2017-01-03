@@ -127,16 +127,17 @@
 
 (dir-locals-set-class-variables
  'smarteye-code
- '((c++-mode . ((c-file-style . "smarteye")))))
+ '((nil . ((projectile-project-type . smarteye)))
+   (c++-mode . ((c-file-style . "smarteye")))))
 
-(dir-locals-set-directory-class "~/Code/git.smarteye.se/" 'smarteye-code)
+(dir-locals-set-directory-class "~/Documents/Code/smarteyepro" 'smarteye-code)
 
 ;;; Post-init code
 
 (add-hook 'after-init-hook
           (lambda ()
-            (load "~/.emacs.d/my-after-init.el")
-            (load "~/.emacs.d/my-hooks.el")))
+            (load "~/.emacs.d/my-hooks.el")
+            (load "~/.emacs.d/my-after-init.el")))
 
 ;;; Advice
 

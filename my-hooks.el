@@ -500,6 +500,25 @@
                                     "make check"
                                     "jhbuild make && jhbuild run ${PWD##*/}")
 
+  (let* ((se-init-cmd (shell-quote-argument
+                       (concat (getenv "VS140COMNTOOLS") "vsvars32.bat")))
+         (se-compile-cmd (concat "devenv /build Debug "
+                                 "Products/SmartEyePro/SmartEyePro.sln"))
+         (se-run-cmd (concat "devenv /runexit "
+                             "Products/SmartEyePro/SmartEyePro.sln"))
+         (se-compile (my/intercalate " && "
+                                     se-init-cmd
+                                     se-compile-cmd))
+         (se-run (my/intercalate " && "
+                                 se-init-cmd
+                                 se-compile-cmd
+                                 se-run-cmd)))
+    (projectile-register-project-type 'smarteye
+                                      (lambda () nil)
+                                      se-compile
+                                      ""
+                                      se-run))
+
   (my/define-keys projectile-command-map
                   '(( "B"   . projectile-ibuffer)
                     ( "i"   . my/projectile-index-projects)
