@@ -503,9 +503,9 @@
   (let* ((se-init-cmd (shell-quote-argument
                        (concat (getenv "VS140COMNTOOLS") "vsvars32.bat")))
          (se-compile-cmd (concat "devenv /build Debug "
-                                 "Products/SmartEyePro/SmartEyePro.sln"))
+                                 "Products\\SmartEyePro\\SmartEyePro.sln"))
          (se-run-cmd (concat "devenv /runexit "
-                             "Products/SmartEyePro/SmartEyePro.sln"))
+                             "Products\\SmartEyePro\\SmartEyePro.sln"))
          (se-compile (my/intercalate " && "
                                      se-init-cmd
                                      se-compile-cmd))
