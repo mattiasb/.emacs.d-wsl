@@ -182,7 +182,7 @@
  '(rtags-completions-enabled t)
  '(rust-indent-method-chain t)
  '(safe-local-variable-values
-   '((projectile-project-type . smarteye)
+   '((projectile-project-type . smarteyepro)
      (c-mode . c++)
      (mtg-deck-format . vintage)
      (mtg-deck-format . standard)

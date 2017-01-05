@@ -126,11 +126,12 @@
 (dir-locals-set-directory-class "~/Code/gnome/src/" 'gnome-code)
 
 (dir-locals-set-class-variables
- 'smarteye-code
- '((nil . ((projectile-project-type . smarteye)))
+ 'smarteyepro
+ '((nil . ((projectile-project-type . smarteyepro)))
    (c++-mode . ((c-file-style . "smarteye")))))
 
-(dir-locals-set-directory-class "~/Documents/Code/smarteyepro" 'smarteye-code)
+(dir-locals-set-directory-class "~/Documents/Code/git.smarteye.se/smarteyepro/smarteyepro"
+                                'smarteyepro)
 
 ;;; Post-init code
 

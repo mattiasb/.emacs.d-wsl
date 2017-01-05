@@ -521,8 +521,7 @@
                                     "make check"
                                     "jhbuild make && jhbuild run ${PWD##*/}")
 
-  (let* ((se-init-cmd (shell-quote-argument
-                       (concat (getenv "VS140COMNTOOLS") "vsvars32.bat")))
+  (let* ((se-init-cmd "vsvars32.bat")
          (se-compile-cmd (concat "devenv /build Debug "
                                  "Products\\SmartEyePro\\SmartEyePro.sln"))
          (se-run-cmd (concat "devenv /runexit "
@@ -534,7 +533,7 @@
                                  se-init-cmd
                                  se-compile-cmd
                                  se-run-cmd)))
-    (projectile-register-project-type 'smarteye
+    (projectile-register-project-type 'smarteyepro
                                       (lambda () nil)
                                       se-compile
                                       ""
