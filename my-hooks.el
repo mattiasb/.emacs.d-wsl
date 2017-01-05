@@ -587,8 +587,7 @@
 (defun my/anaconda-mode-hook ()
   "My `anaconda' mode hook."
   (my/define-keys anaconda-mode-map
-                  '(( "M-<left>"   . anaconda-mode-go-back)
-                    ( "C-<return>" . anaconda-mode-find-definitions)
+                  '(( "C-<return>" . anaconda-mode-find-definitions)
                     ( "M-<return>" . anaconda-mode-find-assignments)
                     ( "C-z h d"    . anaconda-mode-show-doc)
                     ( "M-?"        . anaconda-mode-find-references))))
