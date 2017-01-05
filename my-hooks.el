@@ -153,6 +153,27 @@
 (add-hook 'company-completion-finished-hook  #'my/fci-turn-on)
 (add-hook 'company-completion-cancelled-hook #'my/fci-turn-on)
 
+
+;; Csharp
+(defun my/csharp-mode-hook ()
+  "My `csharp' mode hook."
+  (set-keymap-parent csharp-mode-map prog-mode-map)
+  (omnisharp-mode))
+
+(add-hook 'csharp-mode-hook #'my/csharp-mode-hook)
+
+;; Omnisharp
+(defun my/omnisharp-mode-hook ()
+  "My `omnisharp' mode hook."
+  (setq-local company-backends '((company-omnisharp)))
+
+  (my/define-keys omnisharp-mode-map
+                  '(( "C-<return>"     . omnisharp-go-to-definition)
+                    ( "C-x 4 <return>" . omnisharp-go-to-definition-other-window)
+                    ( "M-?"            . omnisharp-find-usages))))
+
+(add-hook 'omnisharp-mode-hook #'my/omnisharp-mode-hook)
+
 ;; Cython
 (defun my/cython-mode-hook ()
   "My `cython' mode hook."
