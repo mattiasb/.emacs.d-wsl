@@ -871,6 +871,24 @@ Optionally only search as deep as DEPTH."
     (call-process "/usr/bin/gitg" nil 0)))
 
 ;;;###autoload
+(defun my/register-sln-project (identifier sln)
+  "Register a Visual Studio Project with IDENTIFIER and SLN file."
+  (let* ((sln-init-cmd  "vsvars32.bat")
+         (sln-build-cmd (concat "devenv /build Debug " sln))
+         (sln-run-cmd   (concat "devenv /runexit "     sln))
+         (sln-build     (string-join (list sln-init-cmd sln-build-cmd)
+                                     " && "))
+         (sln-run       (string-join (list sln-init-cmd
+                                           sln-build-cmd
+                                           sln-run-cmd)
+                                     " && " )))
+    (projectile-register-project-type identifier
+                                      (list sln)
+                                      sln-build
+                                      ""
+                                      sln-run)))
+
+;;;###autoload
 (defun my/quit-iedit-mode ()
   "Turn off `iedit-mode'."
   (interactive)

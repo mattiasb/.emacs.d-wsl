@@ -127,8 +127,7 @@
 
 (dir-locals-set-class-variables
  'smarteyepro
- '((nil . ((projectile-project-type . smarteyepro)))
-   (c++-mode . ((c-file-style . "smarteye")))))
+ '((c++-mode . ((c-file-style . "smarteye")))))
 
 (dir-locals-set-directory-class "~/Documents/Code/git.smarteye.se/smarteyepro/smarteyepro"
                                 'smarteyepro)
