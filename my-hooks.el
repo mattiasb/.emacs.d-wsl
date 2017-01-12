@@ -157,7 +157,6 @@
 ;; Csharp
 (defun my/csharp-mode-hook ()
   "My `csharp' mode hook."
-  (set-keymap-parent csharp-mode-map prog-mode-map)
   (omnisharp-mode))
 
 (add-hook 'csharp-mode-hook #'my/csharp-mode-hook)
