@@ -211,3 +211,4 @@
 
 (provide 'init)
 ;;; init.el ends here
+(put 'magit-clean 'disabled nil)
