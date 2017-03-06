@@ -72,6 +72,13 @@
 (add-hook 'backward-forward-mode-hook #'my/backward-forward-mode-hook)
 
 
+;; Bat
+(defun my/bat-mode-hook ()
+  "My `bat' mode hook."
+  (aggressive-indent-mode -1))
+
+(add-hook 'bat-mode-hook #'my/bat-mode-hook)
+
 ;; C common
 (defvar c-mode-base-map)
 (defun my/c-mode-common-hook ()
